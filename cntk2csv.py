@@ -34,7 +34,7 @@ def find_images(dirs_list):
                     labels = load_tsv(labels_path)
                     images.append({ "image_path":image_path, "image_size": image_size, "bboxes": bboxes, "labels": labels })
                 else:
-                    images.append({ "image_path":image_path, "image_size": image_size, "bboxes":[ [0,0,image_size[0],image_size[1]] ], "labels":[ list(["bg"]) ]  })
+                    images.append({ "image_path":image_path, "image_size": image_size, "bboxes":[ [0,0,image_size[0]-1,image_size[1]-1 ] ], "labels":[ list(["bg"]) ]  })
     return images
 
 parser = argparse.ArgumentParser(description= 'Converts a VoTT export in CNTK Fast RCNN format to CSV')
